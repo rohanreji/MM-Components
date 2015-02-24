@@ -1,0 +1,76 @@
+.miscellaneous-view
+{
+	background: url("../img/design.png");
+}
+.dashboard
+{ 
+	position: relative;
+	margin-top: 20%;
+}
+.row
+{
+	text-align: center;
+	font-size: 12px;
+	line-height: 14px;
+}
+
+.col1,.col5
+{  
+	position: relative;
+	width: 5%;
+	
+	background-color: transparent;
+	
+}
+
+.col3,.col4
+{
+	position: relative;
+	width: 30%;
+	
+	background-color: transparent;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c5c6c6;
+	border-right: 0px;
+	border-bottom: 0px;
+
+}
+.col2
+{
+	background-color: transparent;
+	border-style: solid;
+	border-color: #c5c6c6;
+	position: relative;
+	width: 30%;
+	border-width: 1px;
+	border-left: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+}
+.lcol3,.lcol4
+{
+	position: relative;
+	width: 30%;
+	
+	background-color: transparent;
+	border-style: solid;
+	border-width: 1px;
+	border-color: #c5c6c6;
+	border-top: 1px;
+	border-right: 0px;
+	border-bottom: 0px;
+
+}
+.lcol2
+{
+    position: relative;
+    width:30%;
+	
+	
+	background-color: transparent;
+}
+img
+{
+	margin:7%;
+}

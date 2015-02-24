@@ -4670,13 +4670,13 @@ a.item-content {
   padding-left: 72px;
   min-height: 72px; }
   .item-avatar > img:first-child, .item-avatar .item-image, .item-avatar .item-content > img:first-child, .item-avatar .item-content .item-image, .item-avatar-left > img:first-child, .item-avatar-left .item-image, .item-avatar-left .item-content > img:first-child, .item-avatar-left .item-content .item-image {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    max-width: 40px;
-    max-height: 40px;
-    width: 100%;
-    border-radius: 50%; }
+  position: absolute;
+top: -5px;
+left: -15px;
+max-width: 60px;
+max-height: 60px;
+width: 100%;
+border-radius: 50%; }
 
 .item-avatar-right, .item-avatar-right .item-content {
   padding-right: 72px;

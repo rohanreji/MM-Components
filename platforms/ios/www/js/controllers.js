@@ -1,10 +1,554 @@
-angular.module('your_app_name.controllers', [])
-
+angular.module('your_app_name.controllers', ['angles','ngGPlaces'])
+.config(function(ngGPlacesAPIProvider){
+  ngGPlacesAPIProvider.setDefaults({
+    radius:500
+  });
+})
 // APP
 .controller('AppCtrl', function($scope) {
 
 })
 // WALKTHROUGH
+
+
+
+.service('sharedProperties', function () {
+        var property;
+        var timer;
+        var violations;
+        var paid;
+        return {
+            getProperty: function () {
+                return property;
+            },
+            setProperty: function(value) {
+                property = value;
+            },
+            setTimer:function(argument) {
+              timer=argument;
+            },
+            getTimer:function(){
+              return timer;
+            },
+             getViolations: function () {
+                return violations;
+            },
+            setViolations: function(value) {
+                violations = value;
+            },
+             getPaid: function () {
+                return paid;
+            },
+            setPaid: function(value) {
+                paid = value;
+            }
+
+        };
+    })
+
+
+.controller('TicketCtrl', function($scope,sharedProperties,$ionicPopup,$state) {
+
+
+
+
+ $scope.init = function() {
+
+        // $http.get("http://echo.jsontest.com/conditions/frightful")
+        //     .success(function(data) {
+               var data=[
+                        { title: 'JHN123A', id: 1 , startingdate: '12/10/2013',enddate:'13/10/2013',length:'1',feepaid:'300',area1:'wereq',area2:'rpty',color:'red'},
+                        { title: 'JHG123A', id: 2 , startingdate: '13/10/2013',enddate:'15/10/2013',length:'2',feepaid:'200',area1:'wertq',area2:'iety',color:'orange'},
+                        { title: 'JHN126A', id: 3 , startingdate: '17/10/2013',enddate:'20/10/2013',length:'3',feepaid:'100',area1:'aereq',area2:'reyy',color:'orange'},
+                        { title: 'JHN113A', id: 4 , startingdate: '12/10/2014',enddate:'14/10/2014',length:'2',feepaid:'240',area1:'werwq',area2:'reoy',color:'orange'},
+                        { title: 'GHN326A', id: 5 , startingdate: '13/10/2014',enddate:'20/10/2014',length:'7',feepaid:'170',area1:'weteq',area2:'remy',color:'green'},
+                        { title: 'JFN123A', id: 6 , startingdate: '14/10/2013',enddate:'20/10/2013',length:'6',feepaid:'390',area1:'wermq',area2:'rkty',color:'green'}
+                    ];
+                $scope.entries = data;
+                sharedProperties.setProperty($scope.entries);
+               
+
+            // })
+            // .error(function(data) {
+            //     console.log("ERROR: " + data);
+            // });
+    };
+
+     $scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  
+  $scope.data = {}
+
+    // An alert dialog
+  $scope.showPopup = function(varia) {
+    console.log("clicked");
+    var alertPopup = $ionicPopup.alert({
+      title: 'Reservation Details',
+
+      template: "<b>Time Left: "+varia.length+" day</b>"+"<br>Reservation no: "+varia.title+"<br>"+"starting date: "+varia.startingdate+"<br>end date: "+varia.enddate+"<br>fee paid: OMR "+varia.feepaid+"<br>Area1: "+varia.area1+"<br>Area2: "+varia.area2,
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel', onTap: function(e) { return true; } },
+      {
+        text: '<b>Renew</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          return "rohan";
+        }
+      }
+    ]
+    
+
+
+
+    });
+    alertPopup.then(function(res) {
+      console.log('Thank you for not eating my delicious ice cream cone'+res);
+    });
+  };
+
+})
+
+
+.controller('PopupCtrl',function($scope, $ionicPopup,$location,$state) {
+
+// Triggered on a button click, or some other target
+$scope.showPopup = function() {
+  $scope.data = {}
+
+  // An elaborate, custom popup
+  var myPopup = $ionicPopup.show({
+    title: 'PKI Number successful',
+    scope: $scope,
+    buttons: [
+      {
+        text: '<b>OK</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+        	$state.go('app.frontscreen');
+         
+        }
+      }
+    ]
+  });
+  myPopup.then(function(res) {
+    console.log('Tapped!', res);
+  });
+  
+ };
+
+})
+
+
+.controller('PermitCtrl', function($scope,sharedProperties,$ionicPopup,$state) {
+  
+
+
+ $scope.init = function() {
+
+        // $http.get("http://echo.jsontest.com/conditions/frightful")
+        //     .success(function(data) {
+               var data=[
+                        { title: 'JHN123A', id: 1 , startingdate: '12/10/2013',enddate:'13/10/2013',length:'1',feepaid:'300',area1:'wereq',area2:'rpty',color:'red'},
+                        { title: 'JHG123A', id: 2 , startingdate: '13/10/2013',enddate:'15/10/2013',length:'2',feepaid:'200',area1:'wertq',area2:'iety',color:'orange'},
+                        { title: 'JHN126A', id: 3 , startingdate: '17/10/2013',enddate:'20/10/2013',length:'3',feepaid:'100',area1:'aereq',area2:'reyy',color:'orange'},
+                        { title: 'JHN113A', id: 4 , startingdate: '12/10/2014',enddate:'14/10/2014',length:'2',feepaid:'240',area1:'werwq',area2:'reoy',color:'orange'},
+                        { title: 'GHN326A', id: 5 , startingdate: '13/10/2014',enddate:'20/10/2014',length:'7',feepaid:'170',area1:'weteq',area2:'remy',color:'green'},
+                        { title: 'JFN123A', id: 6 , startingdate: '14/10/2013',enddate:'20/10/2013',length:'6',feepaid:'390',area1:'wermq',area2:'rkty',color:'green'}
+                    ];
+                $scope.entries = data;
+                sharedProperties.setProperty($scope.entries);
+               
+
+            // })
+            // .error(function(data) {
+            //     console.log("ERROR: " + data);
+            // });
+    };
+      $scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  
+  
+  $scope.data = {}
+
+    // An alert dialog
+  $scope.showPopup = function(varia) {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Reservation Details',
+
+      template: "<b>Time Left: "+varia.length+" day</b>"+"<br>Reservation no: "+varia.title+"<br>"+"starting date: "+varia.startingdate+"<br>end date: "+varia.enddate+"<br>fee paid: OMR "+varia.feepaid+"<br>Area1: "+varia.area1+"<br>Area2: "+varia.area2,
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel', onTap: function(e) { return true; } },
+      {
+        text: '<b>Renew</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          return "rohan";
+        }
+      }
+    ]
+    
+
+
+
+    });
+    alertPopup.then(function(res) {
+      console.log('Thank you for not eating my delicious ice cream cone'+res);
+    });
+  };
+})
+
+
+.controller('ViolationsCtrl', function($scope, sharedProperties,$stateParams,$ionicPopup,$state) {
+  document.getElementById("paid").style.display = 'none';
+  $scope.data=[
+                        { vehiclenum: 'JHN163A', id: 1 ,incidentdate: '12/10/2013',incidenttime:'11.00 am',omr:'300',status:'XXX',vehicletype:'SUV'},
+                        { vehiclenum: 'JHN123A', id: 2 ,incidentdate: '22/10/2013',incidenttime:'11.00 am',omr:'100',status:'XXX',vehicletype:'MUV'},
+                        { vehiclenum: 'JH323A', id: 3 ,incidentdate: '12/11/2014',incidenttime:'11.00 am',omr:'200',status:'XXX',vehicletype:'SUV'},
+                        { vehiclenum: 'JHN3A', id: 4 ,incidentdate: '12/10/2014',incidenttime:'11.00 am',omr:'300',status:'XXX',vehicletype:'MUV'},
+                        { vehiclenum: 'JHN128A', id: 5 ,incidentdate: '15/10/2013',incidenttime:'11.00 am',omr:'500',status:'XXX',vehicletype:'XXX'},
+                        { vehiclenum: 'JVN123A', id: 6 ,incidentdate: '17/10/2014',incidenttime:'11.00 am',omr:'70',status:'XXX',vehicletype:'SUV'},
+                        ];
+  $scope.entries = $scope.data;
+  sharedProperties.setViolations($scope.entries);
+
+  $scope.data1=[
+                        { vehiclenum: 'JHN163A', id: 1 ,incidentdate: '12/10/2013',incidenttime:'11.00 am',omr:'300',status:'XXX',vehicletype:'SUV',paidon:'13/10/2013'},
+                        { vehiclenum: 'JHN123A', id: 2 ,incidentdate: '22/10/2013',incidenttime:'11.00 am',omr:'100',status:'XXX',vehicletype:'MUV',paidon:'24/10/2013'},
+                        { vehiclenum: 'JH323A', id: 3 ,incidentdate: '12/11/2014',incidenttime:'11.00 am',omr:'200',status:'XXX',vehicletype:'SUV',paidon:'19/11/2014'}
+                       ];
+  $scope.entries1 = $scope.data1;
+  sharedProperties.setPaid($scope.entries1);
+    $scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  
+
+  $scope.PaidChanged = function() {
+    console.log('Paid Change', $scope.paycheck.checked);
+    if($scope.paycheck.checked==true){
+       document.getElementById("paid").style.display = 'block';
+        document.getElementById("unpaid").style.display = 'none';
+    }
+    else
+    {
+      document.getElementById("unpaid").style.display = 'block';
+        document.getElementById("paid").style.display = 'none';
+    }
+  };
+  $scope.paycheck= { checked: false };
+
+
+
+  $scope.showPopup = function(varia) {
+    if($scope.paycheck.checked==false){
+    var alertPopup = $ionicPopup.alert({
+      title: 'Parking violations',
+      
+      template: "Parking violation: "+varia.id+"<br>"+"vehicle num: "+varia.vehiclenum+"<br>Vehicle type: "+varia.vehicletype+"<br>status: "+varia.status+"<br>Incident date: "+varia.incidentdate+"<br>incident time: "+varia.incidenttime+"<br>Amount: OMR "+varia.omr,
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel', onTap: function(e) { return true; } },
+      {
+        text: '<b>Pay</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          return "rohan";
+        }
+      }
+    ]
+   
+
+    });
+     alertPopup.then(function(res) {
+      console.log('Thank you for not eating my delicious ice cream cone'+res);
+    });
+  }
+  else{
+    var alertPopup = $ionicPopup.alert({
+          title: 'Parking violations',
+          
+          template: "Parking violation: "+varia.id+"<br>"+"vehicle num: "+varia.vehiclenum+"<br>Vehicle type: "+varia.vehicletype+"<br>status: "+varia.status+"<br>Incident date: "+varia.incidentdate+"<br>incident time: "+varia.incidenttime+"<br>Paid on: "+varia.paidon+"<br>Amount: OMR "+varia.omr,
+          scope: $scope,
+          buttons: [
+            { text: 'Cancel', onTap: function(e) { return true; } }
+          ]
+        });
+        alertPopup.then(function(res) {
+          console.log('Thank you for not eating my delicious ice cream cone'+res);
+        });
+
+  }
+  
+  };
+
+
+
+
+
+})
+
+.controller('ParkingCtrl', function($scope, $http,sharedProperties,$ionicPopup,$state) {
+	$scope.feeds_categories = [];
+
+	$http.get('feeds-categories.json').success(function(response) {
+		$scope.feeds_categories = response;
+	});
+
+	$scope.init = function() {
+
+        // $http.get("http://echo.jsontest.com/conditions/frightful")
+        //     .success(function(data) {
+               var data=[
+                        { title: 'JHN123A', id: 1 , parkingdate: '12/10/2013',starttime:'11.00 am',endtime:'3.00 pm',length:'4',feepaid:'300',area1:'wereq',area2:'rpty',color:'green'},
+                        { title: 'JHG123A', id: 2 , parkingdate: '13/10/2013',starttime:'11.00 am',endtime:'3.00 pm',length:'4',feepaid:'200',area1:'wertq',area2:'iety',color:'green'},
+                        { title: 'JHN126A', id: 3 , parkingdate: '17/10/2013',starttime:'12.00 pm',endtime:'2.00 pm',length:'2',feepaid:'100',area1:'aereq',area2:'reyy',color:'orange'},
+                        { title: 'JHN113A', id: 4 , parkingdate: '12/10/2014',starttime:'1.00 pm',endtime:'2.00 pm',length:'1',feepaid:'240',area1:'werwq',area2:'reoy',color:'red'},
+                        { title: 'GHN326A', id: 5 , parkingdate: '13/10/2014',starttime:'11.00 am',endtime:'5.00 pm',length:'6',feepaid:'170',area1:'weteq',area2:'remy',color:'green'},
+                        { title: 'JFN123A', id: 6 , parkingdate: '14/10/2013',starttime:'11.00 am',endtime:'3.00 pm',length:'4',feepaid:'390',area1:'wermq',area2:'rkty',color:'green'}
+                    ];
+                $scope.entries = data;
+                sharedProperties.setProperty($scope.entries);
+               
+
+            // })
+            // .error(function(data) {
+            //     console.log("ERROR: " + data);
+            // });
+    };
+
+    $scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  
+  $scope.data = {}
+
+    // An alert dialog
+  $scope.showPopup = function(varia) {
+    var alertPopup = $ionicPopup.alert({
+      title: 'Reservation Details',
+
+      template: "Reservation no: "+varia.title+"<br>"+"parking date: "+varia.parkingdate+"<br>starting time: "+varia.starttime+"<br>ending time: "+varia.endtime+"<br>fee paid: OMR "+varia.feepaid+"<br>Area1: "+varia.area1+"<br>Area2: "+varia.area2,
+    scope: $scope,
+    buttons: [
+      { text: 'Cancel', onTap: function(e) { return true; } },
+      {
+        text: '<b>Renew</b>',
+        type: 'button-positive',
+        onTap: function(e) {
+          return "rohan";
+        }
+      }
+    ]
+    
+
+
+
+    });
+    alertPopup.then(function(res) {
+      console.log('Thank you for not eating my delicious ice cream cone'+res);
+    });
+  };
+})
+
+
+
+.controller('MyCtrl', function($scope, $stateParams,sharedProperties,$ionicPopup, $filter,$state) {
+ $scope.data = {
+    startDate: "02-19-1990",
+    endDate:"02-19-1990",
+    area:"area1",
+    dur:"12days"
+
+};
+$scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  
+  $scope.areas = [
+  {name:'Area1', id:'1'},
+  {name:'WereNam', id:'2'},
+  {name:'Namen', id:'3'},
+  {name:'Tammaa', id:'4'},
+  {name:'Sean',id:'5'}
+];
+ $scope.durations = [
+  {name:'12 days', id:'1'},
+  {name:'27 days', id:'2'},
+  {name:'15 days', id:'3'},
+  {name:'19 days', id:'4'},
+  {name:'42 days',id:'5'}
+];
+$scope.dosth = function(vari) {
+  console.log(vari.name);
+
+};
+
+ 
+$scope.changedd = function(vari) {
+  console.log(vari.name);
+  
+};
+$scope.calculate=function(){
+  console.log("calculate");
+  if($scope.data.dur.id=='1')
+  {
+    document.getElementById("calc-val").innerHTML = "Parking fee for "+$scope.data.dur.name+" is OMR 20";
+  }
+  else if($scope.data.dur.id=='2')
+  {
+    document.getElementById("calc-val").innerHTML = "Parking fee for "+$scope.data.dur.name+" is OMR 70";
+  }
+
+  else if($scope.data.dur.id=='3')
+  {
+    document.getElementById("calc-val").innerHTML = "Parking fee for "+$scope.data.dur.name+" is OMR 30";
+  }
+  else if($scope.data.dur.id=='4')
+  {
+    document.getElementById("calc-val").innerHTML = "Parking fee for "+$scope.data.dur.name+" is OMR 40";
+  }
+  else if($scope.data.dur.id=='4')
+  {
+    document.getElementById("calc-val").innerHTML = "Parking fee for "+$scope.data.dur.name+" is OMR 90";
+  }
+};
+
+
+
+})
+
+
+
+.controller('AnalyticsCtrl', function($scope, $stateParams,sharedProperties,$state) {
+  $scope.chart = {
+    labels : ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    datasets : [
+        {
+            fillColor : "rgba(151,187,205,0)",
+            strokeColor : "#e67e22",
+            pointColor : "rgba(151,187,205,0)",
+            pointStrokeColor : "#e67e22",
+            data : [4, 3, 5, 4, 6]
+        }
+       
+    ], 
+  };
+
+   $scope.ticket = function() {
+    	console.log("hmm");
+       	$state.go('app.ticket');
+    };
+     $scope.permit = function() {
+    	console.log("hmm");
+       	$state.go('app.permit');
+    };
+     $scope.violations = function() {
+    	console.log("hmm");
+       	$state.go('app.violations');
+    };
+     $scope.analytics = function() {
+    	console.log("hmm");
+       	$state.go('app.analytics');
+    };
+    $scope.calculator = function() {
+    	console.log("hmm");
+       	$state.go('app.calculator');
+    };
+  $scope.area1usage='10';
+  $scope.area2usage='30';
+  $scope.area3usage='15';
+  $scope.recplan="6 months parking for all areas";
+  $scope.amountsave="50";
+})
 .controller('WalkthroughCtrl', function($scope, $state) {
 	$scope.goToLogIn = function(){
 		$state.go('login');
@@ -15,30 +559,65 @@ angular.module('your_app_name.controllers', [])
 	};
 })
 
-.controller('LoginCtrl', function($scope, $state, $templateCache, $q, $rootScope) {
+.controller('frontscreenCtrl', function($scope, $state) {
+	$scope.goToLogIn = function(){
+		$state.go('login');
+	};
+
 	$scope.goToSignUp = function(){
 		$state.go('signup');
 	};
+})
 
-	$scope.goToForgotPassword = function(){
-		$state.go('forgot-password');
+.controller('LoginCtrl', function($scope, $state, $templateCache, $q, $rootScope) {
+	
+
+	$scope.gotoPage2 = function(){
+		$state.go('page2');
 	};
 
-	$scope.doLogIn = function(){
-		$state.go('app.feeds-categories');
+	
+
+})
+
+.controller('page2Ctrl', function($scope, $state, $templateCache, $q, $rootScope) {
+	
+
+	$scope.gotoPage3 = function(){
+		$state.go('page3');
 	};
 
-	$scope.user = {};
+	
 
-	$scope.user.email = "john@doe.com";
-	$scope.user.pin = "12345";
+})
 
-	// We need this for the form validation
-	$scope.selected_tab = "";
 
-	$scope.$on('my-tabs-changed', function (event, data) {
-		$scope.selected_tab = data.title;
-	});
+.controller('page3Ctrl', function($scope, $state, $templateCache, $q, $rootScope) {
+	
+
+	$scope.gotoPage4 = function(){
+		$state.go('page4');
+	};
+	$scope.later = function(){
+		$state.go('frontscreen');
+	};
+
+	
+
+})
+
+
+.controller('page4Ctrl', function($scope, $state, $templateCache, $q, $rootScope) {
+	
+
+	$scope.gotoPage5 = function(){
+		$state.go('page5');
+	};
+	$scope.later = function(){
+		$state.go('frontscreen');
+	};
+
+	
 
 })
 
@@ -108,7 +687,10 @@ angular.module('your_app_name.controllers', [])
 	}
 })
 
-.controller('MapsCtrl', function($scope, $ionicLoading) {
+.controller('MapsCtrl', function($scope, $ionicLoading,ngGPlacesAPI) {
+
+
+
 
 	$scope.info_position = {
 		lat: 43.07493,
@@ -121,28 +703,122 @@ angular.module('your_app_name.controllers', [])
 	};
 
 	$scope.my_location = "";
+  console.log("rohan");
 
 	$scope.$on('mapInitialized', function(event, map) {
 		$scope.map = map;
+
+
+
+
 	});
 
+  $scope.callback =function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+};
+
 	$scope.centerOnMe= function(){
-		$scope.positions = [];
 
-		$ionicLoading.show({
-			template: 'Loading...'
-		});
 
-		// with this function you can get the user’s current position
-		// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
-		navigator.geolocation.getCurrentPosition(function(position) {
-			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			$scope.current_position = {lat: pos.k,lng: pos.D};
-			$scope.my_location = pos.k+", "+pos.D;
-			$scope.map.setCenter(pos);
-			$ionicLoading.hide();
-		});
-	};
+ $scope.callback =function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+};
+
+$scope.pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+
+  $scope.maps = new google.maps.Map(document.getElementById('mapss'), {
+    center: $scope.pyrmont,
+    zoom: 15
+  });
+
+$scope.request = {
+    location: $scope.pyrmont,
+    radius: '500',
+    types: ['store']
+  };
+  if($scope.maps==null)
+    console.log("error");
+  $scope.service = new google.maps.places.PlacesService($scope.maps);
+  if($scope.service==null)
+    console.log("service error");
+  $scope.service.nearbySearch($scope.request,function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+});
+
+$scope.createMarker=function(place) {
+  $scope.placeLoc = place.geometry.location;
+  $scope.marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+};
+
+
+	// 	$scope.positions = [];
+
+	// 	$ionicLoading.show({
+
+	// 		template: 'Loading...'
+	// 	});
+
+	// 	// with this function you can get the user’s current position
+	// 	// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
+	// 	navigator.geolocation.getCurrentPosition(function(position) {
+	// 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	// 		$scope.current_position = {lat: pos.k,lng: pos.D};
+	// 		$scope.my_location = pos.k+", "+pos.D;
+	// 		$scope.map.setCenter(pos);
+	// 		$ionicLoading.hide();
+	// 	});
+
+// $scope.details = ngGPlacesAPI.placeDetails({reference:"hotels",map:$scope.map}).then(
+//     function (data) {
+      
+//       return data;
+//     },function(reason) {
+//   console.log(reason);
+// });
+//  console.log($scope.details);
+
+//   $scope.data = ngGPlacesAPI.nearbySearch({latitude:43.07493, longitude:-89.381388,map:$scope.map}).then(
+//     function(data){
+//        console.log(data);
+//       return data;
+//     },function(reason) {
+//   console.log(reason);
+// });
+
+	 };
 })
 
 .controller('AdmobCtrl', function($scope, $ionicActionSheet, AdMobService) {

@@ -713,10 +713,24 @@ $scope.calculate=function(){
 
 	});
 
+  $scope.callback =function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+};
+
 	$scope.centerOnMe= function(){
 
 
-$scope.callback =function(results, status){
+ $scope.callback =function(results, status){
   if (status == google.maps.places.PlacesServiceStatus.OK) {
     console.log("success");
     for (var i = 0; i < results.length; i++) {
@@ -732,14 +746,42 @@ $scope.callback =function(results, status){
 
 $scope.pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
 
+  $scope.maps = new google.maps.Map(document.getElementById('mapss'), {
+    center: $scope.pyrmont,
+    zoom: 15
+  });
+
 $scope.request = {
     location: $scope.pyrmont,
     radius: '500',
     types: ['store']
   };
+  if($scope.maps==null)
+    console.log("error");
+  $scope.service = new google.maps.places.PlacesService($scope.maps);
+  if($scope.service==null)
+    console.log("service error");
+  $scope.service.nearbySearch($scope.request,function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+});
 
-  $scope.service = new google.maps.places.PlacesService($scope.map);
-  $scope.service.nearbySearch($scope.request, $scope.callback);
+$scope.createMarker=function(place) {
+  $scope.placeLoc = place.geometry.location;
+  $scope.marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+};
 
 
 	// 	$scope.positions = [];

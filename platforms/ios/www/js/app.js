@@ -8,7 +8,7 @@ angular.module('underscore', [])
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.controllers', 'your_app_name.directives', 'your_app_name.filters', 'your_app_name.services', 'your_app_name.factories', 'underscore', 'ngMap', 'ngResource', 'ngCordova', 'templates', 'slugifier'])
+angular.module('your_app_name', ['ionic','angularMoment', 'your_app_name.controllers', 'your_app_name.directives', 'your_app_name.filters', 'your_app_name.services', 'your_app_name.factories', 'underscore', 'ngMap', 'ngResource', 'ngCordova', 'templates', 'slugifier'])
 
 .run(function($ionicPlatform, PushNotificationsService) {
   $ionicPlatform.ready(function() {
@@ -27,6 +27,11 @@ angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.contro
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
+
+
+
+
+ 
 
   .state('walkthrough', {
     url: "/",
@@ -64,6 +69,43 @@ angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.contro
     }
   })
 
+  .state('page2', {
+    url: "/page2",
+   
+    templateUrl: "templates/page2.html",
+    controller: 'page2Ctrl',
+     
+    data: {
+      // authenticate: true
+      authenticate: false
+    }
+  })
+
+
+  .state('page3', {
+    url: "/page3",
+   
+    templateUrl: "templates/page3.html",
+    controller: 'page3Ctrl',
+     
+    data: {
+      // authenticate: true
+      authenticate: false
+    }
+  })
+
+  .state('page4', {
+    url: "/page4",
+   
+    templateUrl: "templates/page4.html",
+    controller: 'page4Ctrl',
+     
+    data: {
+      // authenticate: true
+      authenticate: false
+    }
+  })
+
   .state('app', {
     url: "/app",
     abstract: true,
@@ -71,6 +113,55 @@ angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.contro
     controller: 'AppCtrl'
   })
 
+
+
+   .state('app.ticket', {
+    url: '/ticket',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/ticket.html',
+        controller: 'TicketCtrl'
+      }
+    }
+  })
+   .state('app.permit', {
+    url: '/permit',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/permit.html',
+        controller: 'PermitCtrl'
+      }
+    }
+  })
+    .state('app.violations', {
+    url: '/violations',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/violations.html',
+        controller: 'ViolationsCtrl'
+      }
+    }
+  })
+
+      .state('app.analytics', {
+    url: '/analytics',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/analytics.html',
+        controller: 'AnalyticsCtrl'
+      }
+    }
+  })
+
+        .state('app.calculator', {
+    url: '/calculator',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/calculator.html',
+        
+      }
+    }
+  })
   .state('app.miscellaneous', {
     url: "/miscellaneous",
     views: {
@@ -99,12 +190,12 @@ angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.contro
     }
   })
 
-  .state('app.feeds-categories', {
-    url: "/feeds-categories",
+   .state('app.frontscreen', {
+    url: "/frontscreen",
     views: {
       'menuContent': {
-        templateUrl: "templates/feeds-categories.html",
-        controller: 'FeedsCategoriesCtrl'
+        templateUrl: "templates/frontscreen.html",
+        controller: 'frontscreenCtrl'
       }
     },
     data: {
@@ -112,6 +203,22 @@ angular.module('your_app_name', ['ionic', 'angularMoment', 'your_app_name.contro
       authenticate: false
     }
   })
+
+  .state('app.parking', {
+    url: "/parking",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/parking.html",
+        controller: 'ParkingCtrl'
+      }
+    },
+    data: {
+      // authenticate: true
+      authenticate: false
+    }
+  })
+
+  
 
   .state('app.category-feeds', {
     url: "/category-feeds/:categoryId",

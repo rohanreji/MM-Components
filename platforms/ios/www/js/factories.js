@@ -129,7 +129,7 @@ angular.module('your_app_name.factories', [])
 .factory('NodePushServer', function ($http){
   // Configure push notifications server address
   // 		- If you are running a local push notifications server you can test this by setting the local IP (on mac run: ipconfig getifaddr en1)
-  var push_server_address = "http://192.168.1.108:8000";
+  var push_server_address = "http://192.168.1.102:8000";
 
   return {
     // Stores the device token in a db using node-pushserver

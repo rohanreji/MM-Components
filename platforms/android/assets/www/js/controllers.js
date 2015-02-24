@@ -1,5 +1,9 @@
-angular.module('your_app_name.controllers', ['angles'])
-
+angular.module('your_app_name.controllers', ['angles','ngGPlaces'])
+.config(function(ngGPlacesAPIProvider){
+  ngGPlacesAPIProvider.setDefaults({
+    radius:500
+  });
+})
 // APP
 .controller('AppCtrl', function($scope) {
 
@@ -683,7 +687,10 @@ $scope.calculate=function(){
 	}
 })
 
-.controller('MapsCtrl', function($scope, $ionicLoading) {
+.controller('MapsCtrl', function($scope, $ionicLoading,ngGPlacesAPI) {
+
+
+
 
 	$scope.info_position = {
 		lat: 43.07493,
@@ -696,28 +703,122 @@ $scope.calculate=function(){
 	};
 
 	$scope.my_location = "";
+  console.log("rohan");
 
 	$scope.$on('mapInitialized', function(event, map) {
 		$scope.map = map;
+
+
+
+
 	});
 
+  $scope.callback =function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+};
+
 	$scope.centerOnMe= function(){
-		$scope.positions = [];
 
-		$ionicLoading.show({
-			template: 'Loading...'
-		});
 
-		// with this function you can get the user’s current position
-		// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
-		navigator.geolocation.getCurrentPosition(function(position) {
-			var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-			$scope.current_position = {lat: pos.k,lng: pos.D};
-			$scope.my_location = pos.k+", "+pos.D;
-			$scope.map.setCenter(pos);
-			$ionicLoading.hide();
-		});
-	};
+ $scope.callback =function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+};
+
+$scope.pyrmont = new google.maps.LatLng(-33.8665433,151.1956316);
+
+  $scope.maps = new google.maps.Map(document.getElementById('mapss'), {
+    center: $scope.pyrmont,
+    zoom: 15
+  });
+
+$scope.request = {
+    location: $scope.pyrmont,
+    radius: '500',
+    types: ['store']
+  };
+  if($scope.maps==null)
+    console.log("error");
+  $scope.service = new google.maps.places.PlacesService($scope.maps);
+  if($scope.service==null)
+    console.log("service error");
+  $scope.service.nearbySearch($scope.request,function(results, status){
+  if (status == google.maps.places.PlacesServiceStatus.OK) {
+    console.log("success");
+    for (var i = 0; i < results.length; i++) {
+      var place = results[i];
+      createMarker(results[i]);
+    }
+  }
+  else
+  {
+    console.log(error);
+  }
+});
+
+$scope.createMarker=function(place) {
+  $scope.placeLoc = place.geometry.location;
+  $scope.marker = new google.maps.Marker({
+    map: map,
+    position: place.geometry.location
+  });
+};
+
+
+	// 	$scope.positions = [];
+
+	// 	$ionicLoading.show({
+
+	// 		template: 'Loading...'
+	// 	});
+
+	// 	// with this function you can get the user’s current position
+	// 	// we use this plugin: https://github.com/apache/cordova-plugin-geolocation/
+	// 	navigator.geolocation.getCurrentPosition(function(position) {
+	// 		var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+	// 		$scope.current_position = {lat: pos.k,lng: pos.D};
+	// 		$scope.my_location = pos.k+", "+pos.D;
+	// 		$scope.map.setCenter(pos);
+	// 		$ionicLoading.hide();
+	// 	});
+
+// $scope.details = ngGPlacesAPI.placeDetails({reference:"hotels",map:$scope.map}).then(
+//     function (data) {
+      
+//       return data;
+//     },function(reason) {
+//   console.log(reason);
+// });
+//  console.log($scope.details);
+
+//   $scope.data = ngGPlacesAPI.nearbySearch({latitude:43.07493, longitude:-89.381388,map:$scope.map}).then(
+//     function(data){
+//        console.log(data);
+//       return data;
+//     },function(reason) {
+//   console.log(reason);
+// });
+
+	 };
 })
 
 .controller('AdmobCtrl', function($scope, $ionicActionSheet, AdMobService) {

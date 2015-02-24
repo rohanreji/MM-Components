@@ -9,7 +9,8 @@
 
 
   <div  ng-controller="ViolationsCtrl" >
-    <ion-toggle toggle-class="toggle-calm" id="toggle-button" ng-change="PaidChanged()" ng-model="paycheck.checked">          Paid Violations</ion-toggle>
+    <ion-toggle toggle-class="toggle-calm" id="toggle-button" ng-change="PaidChanged()" ng-model="paycheck.checked">Paid Violations</ion-toggle>
+
 
      <div class="list" id="unpaid">
         <ion-item ng-repeat="entry in entries" class="item "ng-click="showPopup({{entry}})">

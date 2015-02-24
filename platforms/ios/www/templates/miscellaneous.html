@@ -3,47 +3,36 @@
     <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
   </ion-nav-buttons>
   <ion-nav-title>
-    <span>Miscellaneous</span>
+    <span>Explore Muscat</span>
   </ion-nav-title>
-  <ion-content>
-    <div class="list miscellaneous-functionalities">
-      <a class="item item-icon-left item-icon-right" href="#" ng-controller="InAppBrowserCtrl" ng-click="openBrowser()">
-        <i class="icon ion-ios-browsers-outline"></i>
-        <div>
-          <span class="title">In App Browser</span>
-          <p class="description">Show web browser view with external links</p>
-        </div>
-        <i class="icon ion-arrow-right-c"></i>
-      </a>
-      <a class="item item-icon-left item-icon-right" href="#/app/miscellaneous/maps">
-        <i class="icon ion-map"></i>
-        <div>
-          <span class="title">Maps & GeoLocation</span>
-          <p class="description">Show map & access user's current location</p>
-        </div>
-        <i class="icon ion-arrow-right-c"></i>
-      </a>
-      <a class="item item-icon-left item-icon-right" href="#" ng-controller="AdmobCtrl" ng-click="manageAds()">
-        <i class="icon ion-social-usd-outline"></i>
-        <div>
-          <span class="title">AdMob</span>
-          <p class="description">Show Mobile Ads with Google AdMob</p>
-        </div>
-      </a>
-      <a class="item item-icon-left item-icon-right" href="#" ng-controller="RateApp" ng-click="rateApp()">
-        <i class="icon ion-ios-star-half"></i>
-        <div>
-          <span class="title">Rate the app</span>
-          <p class="description">Rate this app in Google and Apple stores</p>
-        </div>
-      </a>
-      <a class="item item-icon-left item-icon-right" href="#" ng-controller="SendMailCtrl" ng-click="sendMail()">
-        <i class="icon ion-email"></i>
-        <div>
-          <span class="title">Send email</span>
-          <p class="description">Access your phone native email sender provider</p>
-        </div>
-      </a>
-    </div>
+  <ion-content >
+  <div class="dashboard">
+      <div class="row">
+      <div class="col1"></div>
+      <div class="lcol2"><img src="img/hospital.png" alt="ionic" height="55" width="55" >Hospital</div>
+      <div class="lcol3"><img src="img/dollar.png" alt="ionic" height="55" width="55">  &nbspATM&nbsp&nbsp</div>
+     
+      <div class="lcol4" >  <a href="#/app/miscellaneous/maps"><img src="img/hotel.png" alt="ionic" height="55" width="55">&nbspHotel&nbsp </a></div>
+      <div class="col5"></div>
+      </div>
+     
+      <div class="row">
+      <div class="col1"></div>
+      <div class="col2"><img src="img/places.png" alt="ionic" height="55" width="55" >Places of Interest</div>
+      <div class="col3"><img src="img/phone.png" alt="ionic" height="55" width="55">Emergency Calls</div>
+      <div class="col4"><img src="img/shopping.png" alt="ionic" height="55" width="55">Shopping Center</div>
+      <div class="col5"></div>
+      </div>
+      <div class="row">
+      <div class="col1"></div>
+      <div class="col2"><img src="img/medical.png" alt="ionic" height="55" width="55">Medical Shop</div>
+      <div class="col3"><img src="img/currency.png" alt="ionic" height="55" width="55">Currency Converter</div>
+      <div class="col4"><img src="img/petrol.png" alt="ionic" height="55" width="55"> &nbspPetrol Pump</div>
+      <div class="col5"></div>
+      </div>
+  </div> 
+
+
+
   </ion-content>
 </ion-view>
