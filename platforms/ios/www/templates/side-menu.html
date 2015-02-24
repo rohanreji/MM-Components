@@ -1,0 +1,54 @@
+<ion-side-menus enable-menu-with-back-views="false">
+  <ion-side-menu-content class="post-size-14px">
+    <ion-nav-bar class="bar-assertive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+      <ion-nav-buttons side="left">
+        <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+        </button>
+      </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-nav-view name="menuContent"></ion-nav-view>
+  </ion-side-menu-content>
+
+  <ion-side-menu side="left" expose-aside-when="large">
+    <ion-content>
+      <ion-list>
+        <!-- TODO: ver si ponemos o no 'nav-clear' -->
+        <ion-item class="heading-item item item-avatar">
+          <img ng-src="https://s3.amazonaws.com/uifaces/faces/twitter/brynn/128.jpg">
+          <h2 class="greeting">Hi Brynn</h2>
+          <p class="message">Welcome back</p>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/">
+          <i class="icon ion-home"></i>
+          <h2 class="menu-text">Home</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/miscellaneous">
+          <i class="icon ion-asterisk"></i>
+          <h2 class="menu-text">Miscellaneous</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/feeds-categories">
+          <i class="icon ion-radio-waves"></i>
+          <h2 class="menu-text">Feeds</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/wordpress">
+          <i class="icon ion-social-wordpress"></i>
+          <h2 class="menu-text">Wordpress</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/multimedia">
+          <i class="icon ion-play"></i>
+          <h2 class="menu-text">Multimedia</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/forms">
+          <i class="icon ion-document"></i>
+          <h2 class="menu-text">Forms</h2>
+        </ion-item>
+        <ion-item class="item-icon-left" nav-clear menu-close href="#/app/settings">
+          <i class="icon ion-gear-a"></i>
+          <h2 class="menu-text">Settings</h2>
+        </ion-item>
+    </ion-list>
+    </ion-content>
+  </ion-side-menu>
+</ion-side-menus>

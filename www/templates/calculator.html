@@ -1,0 +1,41 @@
+<ion-view view-title="Calculator">
+<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Calculator</span>
+  </ion-nav-title>
+  <ion-content>
+
+ 
+    
+   <div ng-controller="MyCtrl" id="controller">
+      <br>
+      Enter Details:<br>
+
+      <select id="areaselect" ng-model="data.area" ng-options="area.name for area in areas" ng-change="dosth(data.area)">
+        <option value="">-- choose area --</option>
+      </select><br><br>
+
+      <input type="date"  value="start date" id="startdate" ng-model="data.startDate"  />
+    
+  
+     <hr/><br><br>
+
+
+      <input type="date"  value="end date" id="enddate" ng-model="data.endDate"  />
+    <hr/><br><br>
+
+  <select id="durationselect" ng-model="data.dur" ng-options="duration.name for duration in durations" ng-change="changedd(data.dur)">
+        <option value="">-- choose duration --</option>
+      </select>
+      <br><br>
+  <button class="button button-positive ticket-det button-det1" ng-click="calculate()">
+   calculate
+  </button><br><br>
+  <p id="calc-val"></p>
+  </div>
+
+       
+  </ion-content>
+</ion-view>

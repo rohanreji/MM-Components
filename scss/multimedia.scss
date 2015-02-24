@@ -1,0 +1,65 @@
+.multimedia-view
+{
+	background-color: #EBEBEB !important;
+
+	// To fix iframe scroll issue
+	// ion-content
+	// {
+	// 	-webkit-overflow-scrolling: touch !important;
+	// 	overflow: scroll !important;
+	// }
+
+	.media-container
+	{
+		position: relative;
+		padding-bottom: 56.25%;
+		padding-top: 30px; height: 0; overflow: hidden;
+	}
+
+	.media-container iframe,
+	.media-container object,
+	.media-container embed
+	{
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	.media-item
+	{
+		.item-avatar
+		{
+			padding: 8px 10px 8px 60px;
+			min-height: 60px;
+
+			img
+			{
+				top: 10px;
+				left: 10px;
+			}
+
+			h2
+			{
+				font-size:15px;
+				font-weight:500;
+				line-height: 20px;
+				color:$dark;
+			}
+
+			p
+			{
+				font-size:14px;
+				font-weight:500;
+				color:darken($stable, 40%);
+
+				b
+				{
+					color:lighten($positive, 10%);
+				}
+			}
+		}
+	}
+
+}

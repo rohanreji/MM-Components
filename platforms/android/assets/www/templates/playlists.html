@@ -1,0 +1,19 @@
+<ion-view view-title="Ticket Details" >
+<div id="container">
+  <ion-content ng-controller="PlaylistCtrl" class="ticket-content ">
+  <br>
+    <h4 class="ticket-det"><b>Time Left: {{timer}} mins</b></h4>
+    <p class="ticket-det">Reservation No: <b>{{contid.title}}</b></p>
+    <p class="ticket-det">parking date  : <b>{{contid.parkingdate}}</b></p>
+    <p class="ticket-det">starting time : <b>{{contid.starttime}}</b></p>
+    <p class="ticket-det">ending time   : <b>{{contid.endtime}}</b></p>
+    <p class="ticket-det">fee paid      : <b>OMR {{contid.feepaid}}</b></p>
+    <p class="ticket-det">Area1         : <b>{{contid.area1}}</b></p>
+    <p class="ticket-det">Area2         : <b>{{contid.area2}}</b></p>
+
+	<button class="button button-positive ticket-det button-det">
+ 	 renew
+	</button>
+  </ion-content>
+  </div>
+</ion-view>

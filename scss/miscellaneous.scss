@@ -1,0 +1,20 @@
+.miscellaneous-view
+{
+	.miscellaneous-functionalities
+	{
+		.item .icon:first-child
+		{
+			color: $assertive;
+		}
+
+		.item .title
+		{
+			font-weight:500;
+		}
+
+		.item .description
+		{
+			color: darken($stable, 30%);
+		}
+	}
+}

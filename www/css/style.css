@@ -1,0 +1,224 @@
+
+/* Empty. Add your own CSS if you like */
+select {
+    padding:3px;
+    margin: 0;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px;
+    border-radius:4px;
+    -webkit-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    -moz-box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    box-shadow: 0 3px 0 #ccc, 0 -1px #fff inset;
+    background: #f8f8f8;
+    color:#888;
+    border:none;
+    outline:none;
+    display: inline-block;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    cursor:pointer;
+    height:50px;
+}
+.bar-stable{
+	background-color: #2c3e50!important;
+	color: #fff !important;
+
+}
+.tabs-positive  .tabs{
+background-color: #18a54a !important;
+
+}
+.button-positive{
+	background-color: #18a54a !important;
+
+}
+.title{
+	background-color: #2c3e50 !important;
+	color:#fff !important;
+	
+}
+.myTabs {
+    	background-color:#1b4d71 !important;
+    }
+
+.myTabs:hover {
+    	background-color:#098aba !important;
+    }
+
+
+.ios-ios7-lightbulb-outline {
+  margin-right: 10px;
+}
+.tit{
+	background-color: #2980b9 !important;
+}
+.titl{
+	background-color: #ecf0f1 !important;
+}
+.sete{
+	background-color: #e74c3c !important;
+}
+#toggle-button{
+}
+.item-complex .item-content, .item{
+/*    background-color: #7f8c8d;*/
+    color:#7f8c8d;
+    font-size: 14px;
+}
+#parking-head{
+	padding-left: 20px;
+	padding-top:5px;
+	font-size: 20px;
+	background-color: #3498db;
+	color: #fff;
+}
+.datetimepicker {
+  min-height: 221px;
+}
+.datetimepicker  {
+  width: 100%;
+}
+.ticket-list{/*
+	padding-left: 20px;
+	padding-right: 20px;
+	*/
+	
+	position: relative;
+}
+.list-it{
+	background-color: #2b85c1 !important;
+}
+#parking-head{
+	padding-left: 20px;
+	padding-top:5px;
+}
+.datetimepicker {
+  min-height: 221px;
+}
+.datetimepicker  {
+  width: 100%;
+}
+.ticket-list{
+	position: relative;
+}
+.list-it{
+	background-color: #2b85c1 !important;
+}
+
+.ticket-list span{
+	float: right;
+margin-top: -38px;
+margin-right: 31px;
+color: #fff;
+padding: 7px;
+}
+
+
+.red{
+	background: red;
+}
+.orange{
+	background: orange;
+}
+.green{
+	background: green;
+}
+
+#controller{
+	margin-left: 20px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+#areaselect{
+	width:100%;
+}
+#durationselect{
+	width:100%;
+}
+#footer-analytics{
+	margin-left: 20px;
+	color: #2c3e50;
+}
+#saved{
+	margin-left: 20px;
+	color: #c0392b;
+}
+.usage-stats{
+	
+   margin-left: 20px;
+  	padding:20px 20px 20px 20px;
+   background-color: #d35400;
+   text-align: center;
+   color: #fff;
+   margin-right: 20px;
+}
+#container{
+  
+
+}
+.button-det
+{
+	
+    width: 50%;
+}
+.button-det1{
+	width:100%;
+	
+}
+.ticket-content{
+	
+   margin-left: 20px;
+   margin-right: 20px;
+    
+}
+.ticket-det{
+
+    
+}
+.parking-back{
+	position: relative;
+	background-color: #7f8c8d;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-bottom: -20px;
+	
+}
+.parking-det{
+	
+	color: #e74c3c !important;
+	text-align: left;
+	display: inline-block;
+	margin-left: -10px;
+}
+.parking-time{
+	color:#e74c3c;
+	text-align: right;
+
+	width: 100%;
+    margin: 0 auto;
+
+}
+.parking-time #time-remaining{
+	font-size: 24px;
+	display: inline-block;
+    text-align: right;
+    cursor: default;
+    color: #f1c40f;
+   
+}
+.parking-time #minutes{
+	display: inline-block;
+    text-align: right;
+    cursor: default;
+    color: #fff;
+  
+}
+#details{
+	font-size: 11px;
+	color:#fff;
+	
+}
+

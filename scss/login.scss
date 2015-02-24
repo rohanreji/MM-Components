@@ -1,0 +1,93 @@
+.login-view
+{
+	background-color: darken($light, 60%) !important;
+
+	.row
+	{
+		height:100%;
+	}
+
+	.tabs
+	{
+		.tab-item
+		{
+			font-weight: bold;
+			text-transform: uppercase;
+			background: rgba(0, 0, 0, 0);
+			-webkit-transition: all 0.1s ease;
+			-moz-transition: all 0.1s ease;
+			-ms-transition: all 0.1s ease;
+			-o-transition: all 0.1s ease;
+			transition: all 0.1s ease;
+		}
+
+		.tab-item.active,
+		.tab-item.activated
+		{
+			margin-top: 0;
+			margin-bottom: -2px;
+			border-width: 0px 0px 4px 0px !important;
+			border-color: $positive !important;
+			border-style: solid;
+		}
+	}
+
+	.login-container
+	{
+		margin-bottom: 0px;
+
+		.card-heding
+		{
+			padding:0px;
+			height:$tabs-height;
+
+			.tabs
+			{
+				top: 0px;
+				padding-top: 0;
+				background-position: bottom;
+				border-top-width: 0;
+				border-bottom-width: 1px;
+			}
+
+			.tab-item
+			{
+				max-width: none;
+			}
+		}
+
+		.bottom-content
+		{
+			padding-top: 0px;
+			border: none;
+
+			.button
+			{
+				margin: 0px;
+				font-weight: bold;
+			}
+		}
+	}
+
+	.alternative-actions
+	{
+		margin: 0px 10px;
+
+		.button
+		{
+			padding:0px;
+			font-size:14px;
+		}
+
+		.forgot-password
+		{
+
+		}
+
+		.sign-up
+		{
+			float:right;
+		}
+	}
+
+}

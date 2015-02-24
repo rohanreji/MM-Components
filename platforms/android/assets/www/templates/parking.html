@@ -1,0 +1,75 @@
+<ion-view class="login-view">
+ 
+  <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Parking</span>
+  </ion-nav-title>
+
+<!--
+The views will be rendered in the <ion-nav-view> directive below
+Templates are in the /templates folder (but you could also
+have templates inline in this html file if you'd like).
+-->
+<ion-pane scroll="false" ng-controller="ParkingCtrl" ng-init="init()">
+
+ <ion-tabs class="tabs-icon-top tabs-positive">
+
+
+  <!-- Dashboard Tab -->
+  <ion-tab title="Ticket" icon="ion-model-s" ng-click="ticket()">
+    <ion-nav-view name="tab-ticket"></ion-nav-view>
+  </ion-tab>
+
+    <ion-tab title="Permit" icon-off="ion-checkmark" icon-on="ion-checkmark" ng-click="permit()">
+    <ion-nav-view name="tab-permit"></ion-nav-view>
+  </ion-tab>
+
+   <ion-tab title="Violations" icon-off="ion-clipboard" icon-on="ion-clipboard" ng-click="violations()">
+    <ion-nav-view name="tab-violations"></ion-nav-view>
+  </ion-tab>
+
+   <ion-tab title="Analytics" icon-off="ion-stats-bars" icon-on="ion-stats-bars" ng-click="analytics()">
+    <ion-nav-view name="tab-analytics"></ion-nav-view>
+ </ion-tab>
+    <ion-tab title="Calculator" icon-off="ion-calculator" icon-on="ion-calculator" ng-click="calculator()">
+    <ion-nav-view name="tab-calculator"></ion-nav-view>
+  </ion-tab>
+
+ 
+
+
+ 
+
+</ion-tabs>
+
+
+<ion-content>
+
+
+<div id="outer" style="width:100%">  
+    <div id="inner"><br><br><br><br><br>You can find your tickets, permits, violations and even book the tickets from here.</div>
+</div>
+
+
+</ion-content>
+<!--
+
+
+
+
+
+
+The views will be rendered in the <ion-nav-view> directive below
+Templates are in the /templates folder (but you could also
+have templates inline in this html file if you'd like).
+-->
+<ion-nav-view>
+
+</ion-nav-view>
+
+ 
+</ion-pane>
+ 
+</ion-view>

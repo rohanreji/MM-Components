@@ -1,0 +1,102 @@
+.wordpress-view
+{
+	$post-excerpt-lines: 5;
+	$post-font-size: 14px;
+	background-color: #EBEBEB !important;
+
+	.posts-list
+	{
+
+	}
+
+	.post-item
+	{
+
+	}
+
+	.post-image
+	{
+
+	}
+
+	.post-heading
+	{
+		padding-top: 8px;
+		padding-bottom: 8px;
+		background-color: darken($dark, 10%);
+		border-color: #000;
+
+		.post-title
+		{
+			color: #FFF;
+		}
+
+		.post-author
+		{
+			font-weight: 500;
+		}
+	}
+
+	.post-content
+	{
+		padding-top: 8px;
+		padding-bottom: 0px;
+
+		.post-excerpt
+		{
+			overflow: hidden;
+			text-overflow: ellipsis;
+			display: -webkit-box;
+			-webkit-box-orient: vertical;
+			-webkit-line-clamp: $post-excerpt-lines; /* number of lines to show */
+			line-height: $post-font-size + 4;        /* fallback */
+			font-size: $post-font-size;        /* fallback */
+			max-height: ($post-font-size + 4) * $post-excerpt-lines;       /* fallback */
+
+			*
+			{
+				font-size: inherit !important;
+			}
+		}
+
+		.post-actions
+		{
+			padding: 10px 0px;
+
+			.col
+			{
+				padding:0px;
+			}
+
+			.bookmark
+			{
+				.ion-bookmark
+				{
+					min-height: initial;
+					line-height: 28px;
+					padding: 0px;
+				}
+
+				.ion-bookmark:before
+				{
+					font-size: 28px;
+					line-height: 28px;
+				}
+			}
+
+			.read-more
+			{
+				.button
+				{
+					margin:0px;
+				}
+			}
+		}
+	}
+
+
+
+
+
+
+}

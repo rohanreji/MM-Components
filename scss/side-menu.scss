@@ -1,0 +1,78 @@
+ion-side-menu
+{
+	ion-content
+	{
+		background-color: darken($dark, 10%);
+	}
+
+	ion-item.item
+	{
+		border-right:none;
+		border-left:none;
+		border-color: darken($dark, 5%);
+
+		.item-content
+		{
+			background-color: darken($dark, 12%);
+
+			.icon:before
+			{
+				background-color: $dark;
+				color: $stable;
+				border-radius: 50%;
+				font-size: 22px;
+				width: 32px;
+				height: 32px;
+				line-height: 32px;
+			}
+		}
+
+		.item-content.activated
+		{
+			background-color: lighten($dark, 10%);
+		}
+
+		.menu-text
+		{
+			color: darken($stable, 20%);
+			font-weight:500;
+		}
+	}
+
+	ion-item.item:first-child
+	{
+		border-top:none;
+	}
+
+	ion-item.item:last-child
+	{
+		border-bottom:none;
+	}
+
+	.heading-item
+	{
+		background-color: darken($dark, 10%);
+		padding-top: 45px;
+		padding-bottom: 45px;
+		padding-left: 115px;
+
+		img
+		{
+			max-width:90px !important;
+			max-height:90px !important;
+			border: 1px solid darken($stable, 40%);
+			padding: 8px;
+		}
+
+		.greeting
+		{
+			color: $stable;
+			font-weight:500;
+		}
+
+		.message
+		{
+			color: darken($stable, 40%);
+		}
+	}
+}

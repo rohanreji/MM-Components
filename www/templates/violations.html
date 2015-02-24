@@ -1,0 +1,38 @@
+<ion-view view-title="Parking Violations" class="title">
+<ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Parking Violations</span>
+  </ion-nav-title>
+  <ion-content>
+
+
+  <div  ng-controller="ViolationsCtrl" >
+    <ion-toggle toggle-class="toggle-calm" id="toggle-button" ng-change="PaidChanged()" ng-model="paycheck.checked">Paid Violations</ion-toggle>
+
+
+     <div class="list" id="unpaid">
+        <ion-item ng-repeat="entry in entries" class="item "ng-click="showPopup({{entry}})">
+          <!--  <b>{{entry}}</b><br>-->
+            Parking Violation: {{entry.id}}
+			 <b> OMR {{entry.omr}}</b><br>
+
+			 <span ng-bind-html="entry.contentSnippet"></span>
+            
+         </ion-item>
+    </div>
+     <div class="list" id="paid">
+        <ion-item ng-repeat="entry in entries1" class="item " ng-click="showPopup({{entry}})">
+          <!--  <b>{{entry}}</b><br>-->
+            <b>Parking Violation: {{entry.id}}</b>
+			 <b> OMR {{entry.omr}}</b><br>
+
+			 <span ng-bind-html="entry.contentSnippet"></span>
+            
+         </ion-item>
+    </div>
+
+</div>
+  </ion-content>
+</ion-view>

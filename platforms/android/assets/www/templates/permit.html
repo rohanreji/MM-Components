@@ -1,0 +1,26 @@
+<ion-view view-title="Parking Permit" class="title">
+ <ion-nav-buttons side="left">
+    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
+  </ion-nav-buttons>
+  <ion-nav-title>
+    <span>Parking Permit</span>
+  </ion-nav-title>
+  <ion-content  ng-controller="PermitCtrl"  ng-init="init()">
+
+
+
+      
+    <div class="list">
+        <ion-item ng-repeat="entry in entries  | orderBy:'length':false" class="item " ng-click="showPopup({{entry}})" class="list-it">
+          <!--  <b>{{entry}}</b><br>-->
+          <div class="ticket-list">
+            <b>Reservation No: {{entry.title}}</b><br>
+            <b>{{entry.startingdate}} - {{entry.enddate}}</b><br>
+            <span id="hour" class="{{entry.color}}">{{entry.length}} days</span><br>
+          </div>
+          <span ng-bind-html="entry.contentSnippet"></span>
+            
+         </ion-item>
+    </div>
+  </ion-content>
+</ion-view>
